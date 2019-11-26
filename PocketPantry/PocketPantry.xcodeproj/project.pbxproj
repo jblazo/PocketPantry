@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		BC702EA3238D6546002C23ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EA2238D6546002C23ED /* AppDelegate.swift */; };
-		BC702EA5238D6546002C23ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EA4238D6546002C23ED /* ViewController.swift */; };
 		BC702EA8238D6546002C23ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC702EA6238D6546002C23ED /* Main.storyboard */; };
 		BC702EAA238D6565002C23ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC702EA9238D6565002C23ED /* Assets.xcassets */; };
 		BC702EAD238D6565002C23ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC702EAB238D6565002C23ED /* LaunchScreen.storyboard */; };
 		BC702EB8238D6565002C23ED /* PocketPantryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EB7238D6565002C23ED /* PocketPantryTests.swift */; };
 		BC702EC3238D6565002C23ED /* PocketPantryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EC2238D6565002C23ED /* PocketPantryUITests.swift */; };
+		BC702ED1238D6B08002C23ED /* ExampleHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED0238D6B08002C23ED /* ExampleHomeCell.swift */; };
+		BC702ED3238D6D10002C23ED /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED2238D6D10002C23ED /* TabBarController.swift */; };
+		BC702ED5238D6DFA002C23ED /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED4238D6DFA002C23ED /* HomeViewController.swift */; };
+		BC702ED7238D6E3F002C23ED /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED6238D6E3F002C23ED /* ListViewController.swift */; };
+		BC702ED9238D6E71002C23ED /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED8238D6E71002C23ED /* RecipeViewController.swift */; };
+		BC702EDB238D712A002C23ED /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EDA238D712A002C23ED /* Models.swift */; };
+		BC702EDD238D75E9002C23ED /* ItemHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EDC238D75E9002C23ED /* ItemHomeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +42,6 @@
 /* Begin PBXFileReference section */
 		BC702E9F238D6546002C23ED /* PocketPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC702EA2238D6546002C23ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BC702EA4238D6546002C23ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BC702EA7238D6546002C23ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC702EA9238D6565002C23ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC702EAC238D6565002C23ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,13 @@
 		BC702EBE238D6565002C23ED /* PocketPantryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketPantryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC702EC2238D6565002C23ED /* PocketPantryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketPantryUITests.swift; sourceTree = "<group>"; };
 		BC702EC4238D6565002C23ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC702ED0238D6B08002C23ED /* ExampleHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleHomeCell.swift; sourceTree = "<group>"; };
+		BC702ED2238D6D10002C23ED /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BC702ED4238D6DFA002C23ED /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BC702ED6238D6E3F002C23ED /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		BC702ED8238D6E71002C23ED /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		BC702EDA238D712A002C23ED /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		BC702EDC238D75E9002C23ED /* ItemHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHomeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +109,18 @@
 		BC702EA1238D6546002C23ED /* PocketPantry */ = {
 			isa = PBXGroup;
 			children = (
+				BC702ED0238D6B08002C23ED /* ExampleHomeCell.swift */,
 				BC702EA2238D6546002C23ED /* AppDelegate.swift */,
-				BC702EA4238D6546002C23ED /* ViewController.swift */,
 				BC702EA6238D6546002C23ED /* Main.storyboard */,
 				BC702EA9238D6565002C23ED /* Assets.xcassets */,
 				BC702EAB238D6565002C23ED /* LaunchScreen.storyboard */,
 				BC702EAE238D6565002C23ED /* Info.plist */,
+				BC702ED2238D6D10002C23ED /* TabBarController.swift */,
+				BC702ED4238D6DFA002C23ED /* HomeViewController.swift */,
+				BC702ED6238D6E3F002C23ED /* ListViewController.swift */,
+				BC702ED8238D6E71002C23ED /* RecipeViewController.swift */,
+				BC702EDA238D712A002C23ED /* Models.swift */,
+				BC702EDC238D75E9002C23ED /* ItemHomeCell.swift */,
 			);
 			path = PocketPantry;
 			sourceTree = "<group>";
@@ -256,8 +274,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC702EA5238D6546002C23ED /* ViewController.swift in Sources */,
+				BC702ED3238D6D10002C23ED /* TabBarController.swift in Sources */,
 				BC702EA3238D6546002C23ED /* AppDelegate.swift in Sources */,
+				BC702ED9238D6E71002C23ED /* RecipeViewController.swift in Sources */,
+				BC702ED1238D6B08002C23ED /* ExampleHomeCell.swift in Sources */,
+				BC702ED7238D6E3F002C23ED /* ListViewController.swift in Sources */,
+				BC702EDD238D75E9002C23ED /* ItemHomeCell.swift in Sources */,
+				BC702ED5238D6DFA002C23ED /* HomeViewController.swift in Sources */,
+				BC702EDB238D712A002C23ED /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TabBarController.swift
 //  PocketPantry
 //
 //  Created by Blazo, Jarod N on 11/26/19.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class TabBarController : UITabBarController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        selectedIndex = 1
     }
-
-
 }
-
