@@ -18,8 +18,9 @@
 		BC702ED5238D6DFA002C23ED /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED4238D6DFA002C23ED /* HomeViewController.swift */; };
 		BC702ED7238D6E3F002C23ED /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED6238D6E3F002C23ED /* ListViewController.swift */; };
 		BC702ED9238D6E71002C23ED /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702ED8238D6E71002C23ED /* RecipeViewController.swift */; };
-		BC702EDB238D712A002C23ED /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EDA238D712A002C23ED /* Models.swift */; };
 		BC702EDD238D75E9002C23ED /* ItemHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EDC238D75E9002C23ED /* ItemHomeCell.swift */; };
+		BC702EDF238D7E32002C23ED /* PantryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EDE238D7E32002C23ED /* PantryItem.swift */; };
+		BC702EE1238D83F9002C23ED /* PantryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EE0238D83F9002C23ED /* PantryStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +58,9 @@
 		BC702ED4238D6DFA002C23ED /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BC702ED6238D6E3F002C23ED /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		BC702ED8238D6E71002C23ED /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
-		BC702EDA238D712A002C23ED /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		BC702EDC238D75E9002C23ED /* ItemHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHomeCell.swift; sourceTree = "<group>"; };
+		BC702EDE238D7E32002C23ED /* PantryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryItem.swift; sourceTree = "<group>"; };
+		BC702EE0238D83F9002C23ED /* PantryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,6 @@
 		BC702EA1238D6546002C23ED /* PocketPantry */ = {
 			isa = PBXGroup;
 			children = (
-				BC702ED0238D6B08002C23ED /* ExampleHomeCell.swift */,
 				BC702EA2238D6546002C23ED /* AppDelegate.swift */,
 				BC702EA6238D6546002C23ED /* Main.storyboard */,
 				BC702EA9238D6565002C23ED /* Assets.xcassets */,
@@ -119,8 +120,10 @@
 				BC702ED4238D6DFA002C23ED /* HomeViewController.swift */,
 				BC702ED6238D6E3F002C23ED /* ListViewController.swift */,
 				BC702ED8238D6E71002C23ED /* RecipeViewController.swift */,
-				BC702EDA238D712A002C23ED /* Models.swift */,
 				BC702EDC238D75E9002C23ED /* ItemHomeCell.swift */,
+				BC702ED0238D6B08002C23ED /* ExampleHomeCell.swift */,
+				BC702EDE238D7E32002C23ED /* PantryItem.swift */,
+				BC702EE0238D83F9002C23ED /* PantryStore.swift */,
 			);
 			path = PocketPantry;
 			sourceTree = "<group>";
@@ -277,11 +280,12 @@
 				BC702ED3238D6D10002C23ED /* TabBarController.swift in Sources */,
 				BC702EA3238D6546002C23ED /* AppDelegate.swift in Sources */,
 				BC702ED9238D6E71002C23ED /* RecipeViewController.swift in Sources */,
+				BC702EE1238D83F9002C23ED /* PantryStore.swift in Sources */,
 				BC702ED1238D6B08002C23ED /* ExampleHomeCell.swift in Sources */,
 				BC702ED7238D6E3F002C23ED /* ListViewController.swift in Sources */,
 				BC702EDD238D75E9002C23ED /* ItemHomeCell.swift in Sources */,
 				BC702ED5238D6DFA002C23ED /* HomeViewController.swift in Sources */,
-				BC702EDB238D712A002C23ED /* Models.swift in Sources */,
+				BC702EDF238D7E32002C23ED /* PantryItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

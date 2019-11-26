@@ -10,10 +10,10 @@ import UIKit
 
 class HomeViewController : UITableViewController{
 
-    var store : [PantryItem] = []
+    var store = PantryStore()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.count + 1
+        return store.items.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,11 +25,26 @@ class HomeViewController : UITableViewController{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemHomeCell
             let adjustedPath = indexPath.row + 1
             
-            cell.itemNameLabel.text = store[adjustedPath].itemName
-            cell.expirationDateLabel.text = store[adjustedPath].expirationDate
-            cell.amountLeftLabel.text = store[adjustedPath].amountLeft
+            cell.itemNameLabel.text = store.items[adjustedPath].itemName
+            if let date = store.items[adjustedPath].expirationDate {
+                cell.expirationDateLabel.text = "\(date)"
+            }
+            else{
+                cell.expirationDateLabel.text = "N/A"
+            }
+            cell.amountLeftLabel.text = store.items[adjustedPath].amountLeft
             return cell
         }
         
+    }
+    
+    @IBAction func addNewItem(_ barButtonItem: UIBarButtonItem){
+        let itemtoAdd = PantryItem(itemName: "Milk")
+        store.addItem(itemtoAdd)
+        //Do not assume it got added to the end of the array
+        if let row = store.items.firstIndex(of: itemtoAdd){
+            let indexPath = IndexPath(row: row, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
     }
 }
