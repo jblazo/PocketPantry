@@ -23,16 +23,31 @@ class HomeViewController : UITableViewController{
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemHomeCell
-            let adjustedPath = indexPath.row + 1
+            let path = indexPath.row
             
-            cell.itemNameLabel.text = store.items[adjustedPath].itemName
-            if let date = store.items[adjustedPath].expirationDate {
+            cell.itemNameLabel.text = store.items[path].itemName
+            
+            if let date = store.items[path].expirationDate {
                 cell.expirationDateLabel.text = "\(date)"
+                
+                if let theAmount = store.items[path].amountLeft{
+                    cell.amountLeftLabel.text = theAmount
+                }
+                else{
+                    cell.amountLeftLabel.text = "N/A"
+                }
             }
             else{
                 cell.expirationDateLabel.text = "N/A"
+                
+                if let theAmount = store.items[path].amountLeft{
+                    cell.amountLeftLabel.text = theAmount
+                }
+                else{
+                    cell.amountLeftLabel.text = "N/A"
+                }
             }
-            cell.amountLeftLabel.text = store.items[adjustedPath].amountLeft
+            
             return cell
         }
         

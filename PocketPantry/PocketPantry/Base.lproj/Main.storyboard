@@ -95,7 +95,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="amountLabel" destination="ory-0J-1NA" id="RgO-aE-OIg"/>
                                     <outlet property="amountLeftLabel" destination="ory-0J-1NA" id="zEd-sU-mXF"/>
                                     <outlet property="expirationDateLabel" destination="pct-td-GqJ" id="AOY-P4-zfn"/>
                                     <outlet property="itemNameLabel" destination="d6L-p9-aFh" id="Wnq-Ti-GmF"/>
@@ -125,6 +124,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lTC-M2-rnp" customClass="TabBarController" customModule="PocketPantry" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DqA-Rl-HEl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

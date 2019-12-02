@@ -21,7 +21,7 @@ class PantryStore {
     
     func addItem(_ item: PantryItem){
         items.append(item)
-        sortItems()
+        //sortItems()
     }
     
     func sortItems(){
