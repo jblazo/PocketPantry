@@ -13,15 +13,11 @@ class HomeViewController : UITableViewController{
     var store = PantryStore()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.items.count + 1
+        return store.items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ExampleCell", for: indexPath) as! ExampleHomeCell
-            return cell
-        }
-        else{
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemHomeCell
             let path = indexPath.row
             
@@ -49,17 +45,96 @@ class HomeViewController : UITableViewController{
             }
             
             return cell
-        }
         
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let indexPath = IndexPath(item: 0, section: section)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExampleCell", for: indexPath) as! ExampleHomeCell
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44.0
+    }
+    
     @IBAction func addNewItem(_ barButtonItem: UIBarButtonItem){
-        let itemtoAdd = PantryItem(itemName: "Milk")
-        store.addItem(itemtoAdd)
-        //Do not assume it got added to the end of the array
-        if let row = store.items.firstIndex(of: itemtoAdd){
-            let indexPath = IndexPath(row: row, section: 0)
-            tableView.insertRows(at: [indexPath], with: .automatic)
+        
+        showInputDialog(title: "Add Item",
+                        subtitle: "Please enter the new item below.",
+                        actionTitle: "Add",
+                        cancelTitle: "Cancel",
+                        itemNamePlaceholder: "Item Name",
+                        amountLeftPlaceholder: "Amount Left",
+                        expirationPlaceholder: "Expiration Date",
+                        inputKeyboardType: .alphabet)
+        { (input:String?, input2:String?, input3:String?) in
+            
+            print("The new item is \(input ?? "") expiring\(input3 ?? "")  with \(input2 ?? "") left")
+            guard input != "", input2 != "", input3 != "" else{
+                return
+            }
+            if let itemName = input, let amountLeft = input2, let expirationDate = input3{
+                let addItem = PantryItem(itemName: itemName, expirationDate: expirationDate, amountLeft: amountLeft)
+                self.store.addItem(addItem)
+                if let row = self.store.items.firstIndex(of: addItem){
+                    let indexPath = IndexPath(row: row, section: 0)
+                    self.tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+            }
         }
+    }
+}
+
+
+
+extension UIViewController {
+    func showInputDialog(title:String? = nil,
+                         subtitle:String? = nil,
+                         actionTitle:String? = "Add",
+                         cancelTitle:String? = "Cancel",
+                         itemNamePlaceholder:String? = nil,
+                         amountLeftPlaceholder:String? = nil,
+                         expirationPlaceholder:String? = nil,
+                         inputKeyboardType:UIKeyboardType = UIKeyboardType.default,
+                         cancelHandler: ((UIAlertAction) -> Swift.Void)? = nil,
+                         actionHandler: ((_ text: String?, _ text2: String?, _ text3: String?) -> Void)? = nil) {
+        
+        let alert = UIAlertController(title: title, message: subtitle, preferredStyle: .alert)
+        alert.addTextField { (textField:UITextField) in
+            textField.placeholder = itemNamePlaceholder
+            textField.keyboardType = inputKeyboardType
+        }
+        alert.addTextField { (textField:UITextField) in
+            textField.placeholder = amountLeftPlaceholder
+            textField.keyboardType = inputKeyboardType
+        }
+        alert.addTextField { (textField:UITextField) in
+            textField.placeholder = expirationPlaceholder
+            textField.keyboardType = inputKeyboardType
+        }
+        alert.addAction(UIAlertAction(title: actionTitle, style: .destructive, handler: { (action:UIAlertAction) in
+            guard let textField =  alert.textFields?[0] else {
+                actionHandler?(nil, nil, nil)
+                return
+            }
+            guard let secondTextField = alert.textFields?[1] else{
+                actionHandler?(nil, nil, nil)
+                return
+            }
+            guard let thirdTextField = alert.textFields?[2] else{
+                actionHandler?(nil, nil, nil)
+                return
+            }
+            actionHandler?(textField.text, secondTextField.text, thirdTextField.text)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelHandler))
+        
+//        let textField = alert.textFields![0] as UITextField
+//        let textField2 = alert.textFields![1] as UITextField
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

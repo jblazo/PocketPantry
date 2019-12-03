@@ -10,13 +10,29 @@ import Foundation
 
 class PantryItem : NSObject {
     var itemName : String
-    var expirationDate : Date?
+    var expirationDate : String?
     var amountLeft : String?
     
     init(itemName: String) {
         self.itemName = itemName
         self.expirationDate = nil
         self.amountLeft = nil
+        
+        super.init()
+    }
+    
+    init(itemName : String, amountLeft : String?) {
+        self.itemName = itemName
+        self.expirationDate = nil
+        self.amountLeft = amountLeft
+        
+        super.init()
+    }
+    
+    init(itemName : String, expirationDate : String?, amountLeft : String?) {
+        self.itemName = itemName
+        self.expirationDate = expirationDate
+        self.amountLeft = amountLeft
         
         super.init()
     }
