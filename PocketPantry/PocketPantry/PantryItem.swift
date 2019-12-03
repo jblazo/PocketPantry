@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PantryItem : NSObject {
+struct PantryItem : Codable, Equatable{
     var itemName : String
     var expirationDate : String?
     var amountLeft : String?
@@ -17,23 +17,23 @@ class PantryItem : NSObject {
         self.itemName = itemName
         self.expirationDate = nil
         self.amountLeft = nil
-        
-        super.init()
     }
     
     init(itemName : String, amountLeft : String?) {
         self.itemName = itemName
         self.expirationDate = nil
         self.amountLeft = amountLeft
-        
-        super.init()
+    }
+    
+    init(itemName : String, expirationDate : String) {
+        self.itemName = itemName
+        self.expirationDate = expirationDate
+        self.amountLeft = nil
     }
     
     init(itemName : String, expirationDate : String?, amountLeft : String?) {
         self.itemName = itemName
         self.expirationDate = expirationDate
         self.amountLeft = amountLeft
-        
-        super.init()
     }
 }

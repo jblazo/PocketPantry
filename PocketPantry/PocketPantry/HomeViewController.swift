@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController : UITableViewController{
 
-    var store = PantryStore()
+    var store = PantryStore.shared
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return store.items.count
@@ -65,21 +65,70 @@ class HomeViewController : UITableViewController{
                         actionTitle: "Add",
                         cancelTitle: "Cancel",
                         itemNamePlaceholder: "Item Name",
-                        amountLeftPlaceholder: "Amount Left",
                         expirationPlaceholder: "Expiration Date",
+                        amountLeftPlaceholder: "Amount Left",
                         inputKeyboardType: .alphabet)
         { (input:String?, input2:String?, input3:String?) in
-            
-            print("The new item is \(input ?? "") expiring\(input3 ?? "")  with \(input2 ?? "") left")
-            guard input != "", input2 != "", input3 != "" else{
+            guard input != "" else{
                 return
             }
+//            guard input != "", input2 != "" else{
+//                if let itemName = input {
+//                    let addItem = PantryItem(itemName: itemName)
+//                    self.store.addItem(addItem)
+//                    if let row = self.store.items.firstIndex(of: addItem){
+//                        let indexPath = IndexPath(row: row, section: 0)
+//                        self.tableView.insertRows(at: [indexPath], with: .automatic)
+//                    }
+//                }
+//                return
+//            }
+//            guard input != "", input2 != "", input3 != "" else{
+//                if let itemName = input, let expirationDate = input2{
+//                    let addItem = PantryItem(itemName: itemName, expirationDate: expirationDate)
+//                    self.store.addItem(addItem)
+//                    if let row = self.store.items.firstIndex(of: addItem){
+//                        let indexPath = IndexPath(row: row, section: 0)
+//                        self.tableView.insertRows(at: [indexPath], with: .automatic)
+//                    }
+//                }
+//                return
+//            }
+            
+            
+            print("The new item is \(input ?? "") expiring\(input3 ?? "")  with \(input2 ?? "") left")
             if let itemName = input, let amountLeft = input2, let expirationDate = input3{
-                let addItem = PantryItem(itemName: itemName, expirationDate: expirationDate, amountLeft: amountLeft)
-                self.store.addItem(addItem)
-                if let row = self.store.items.firstIndex(of: addItem){
-                    let indexPath = IndexPath(row: row, section: 0)
-                    self.tableView.insertRows(at: [indexPath], with: .automatic)
+                if amountLeft != "", expirationDate != "" {
+                    let addItem = PantryItem(itemName: itemName, expirationDate: expirationDate, amountLeft: amountLeft)
+                    PantryStore.shared.addItem(addItem)
+                    if let row = PantryStore.shared.items.firstIndex(of: addItem){
+                        let indexPath = IndexPath(row: row, section: 0)
+                        self.tableView.insertRows(at: [indexPath], with: .automatic)
+                    }
+                }
+                else if amountLeft != "", expirationDate == ""{
+                    let addItem = PantryItem(itemName: itemName, amountLeft: amountLeft)
+                    PantryStore.shared.addItem(addItem)
+                    if let row = PantryStore.shared.items.firstIndex(of: addItem){
+                        let indexPath = IndexPath(row: row, section: 0)
+                        self.tableView.insertRows(at: [indexPath], with: .automatic)
+                    }
+                }
+                else if amountLeft == "", expirationDate != ""{
+                    let addItem = PantryItem(itemName: itemName, expirationDate: expirationDate)
+                    PantryStore.shared.addItem(addItem)
+                    if let row = PantryStore.shared.items.firstIndex(of: addItem){
+                        let indexPath = IndexPath(row: row, section: 0)
+                        self.tableView.insertRows(at: [indexPath], with: .automatic)
+                    }
+                }
+                else{
+                    let addItem = PantryItem(itemName: itemName)
+                    PantryStore.shared.addItem(addItem)
+                    if let row = PantryStore.shared.items.firstIndex(of: addItem){
+                        let indexPath = IndexPath(row: row, section: 0)
+                        self.tableView.insertRows(at: [indexPath], with: .automatic)
+                    }
                 }
             }
         }
@@ -94,8 +143,8 @@ extension UIViewController {
                          actionTitle:String? = "Add",
                          cancelTitle:String? = "Cancel",
                          itemNamePlaceholder:String? = nil,
-                         amountLeftPlaceholder:String? = nil,
                          expirationPlaceholder:String? = nil,
+                         amountLeftPlaceholder:String? = nil,
                          inputKeyboardType:UIKeyboardType = UIKeyboardType.default,
                          cancelHandler: ((UIAlertAction) -> Swift.Void)? = nil,
                          actionHandler: ((_ text: String?, _ text2: String?, _ text3: String?) -> Void)? = nil) {
@@ -106,11 +155,11 @@ extension UIViewController {
             textField.keyboardType = inputKeyboardType
         }
         alert.addTextField { (textField:UITextField) in
-            textField.placeholder = amountLeftPlaceholder
+            textField.placeholder = expirationPlaceholder
             textField.keyboardType = inputKeyboardType
         }
         alert.addTextField { (textField:UITextField) in
-            textField.placeholder = expirationPlaceholder
+            textField.placeholder = amountLeftPlaceholder
             textField.keyboardType = inputKeyboardType
         }
         alert.addAction(UIAlertAction(title: actionTitle, style: .destructive, handler: { (action:UIAlertAction) in
@@ -138,3 +187,4 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
