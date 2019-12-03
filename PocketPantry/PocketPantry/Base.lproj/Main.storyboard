@@ -109,7 +109,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="kCD-GY-2Vj">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="poK-Bh-Anf">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rnz-Fe-y3R">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rnz-Fe-y3R">
                                 <rect key="frame" x="20" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit"/>
@@ -210,11 +210,11 @@
             </objects>
             <point key="canvasLocation" x="1068" y="127"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="Qdz-TF-mop">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkN-pe-UEL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="mgg-wR-ytg"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home Icon" id="mgg-wR-ytg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jqq-Ez-qFH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -230,4 +230,7 @@
             <point key="canvasLocation" x="1018.840579710145" y="866.51785714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Home Icon" width="42.666667938232422" height="42.666667938232422"/>
+    </resources>
 </document>
