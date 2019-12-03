@@ -25,19 +25,12 @@ class PantryStore {
         if let index = items.firstIndex(of: item){
             items.remove(at: index)
         }
-        sortItems()
+        saveItems()
     }
     
     func addItem(_ item: PantryItem){
         items.append(item)
         saveItems()
-        //sortItems()
-    }
-    
-    func sortItems(){
-        items.sort { (leftItem, rightItem) -> Bool in
-            return leftItem.itemName < rightItem.itemName
-        }
     }
     
     func loadItems(){

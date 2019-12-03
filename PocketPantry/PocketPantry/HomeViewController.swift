@@ -58,6 +58,14 @@ class HomeViewController : UITableViewController{
         return 44.0
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            let itemtoDelete = store.items[indexPath.row]
+            store.removeItem(itemtoDelete)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     @IBAction func addNewItem(_ barButtonItem: UIBarButtonItem){
         
         showInputDialog(title: "Add Item",
@@ -96,8 +104,8 @@ class HomeViewController : UITableViewController{
 //            }
             
             
-            print("The new item is \(input ?? "") expiring\(input3 ?? "")  with \(input2 ?? "") left")
-            if let itemName = input, let amountLeft = input2, let expirationDate = input3{
+            print("The new item is \(input ?? "") expiring \(input3 ?? "")  with \(input2 ?? "") left")
+            if let itemName = input, let amountLeft = input3, let expirationDate = input2{
                 if amountLeft != "", expirationDate != "" {
                     let addItem = PantryItem(itemName: itemName, expirationDate: expirationDate, amountLeft: amountLeft)
                     PantryStore.shared.addItem(addItem)
@@ -131,6 +139,17 @@ class HomeViewController : UITableViewController{
                     }
                 }
             }
+        }
+    }
+    
+    @IBAction func removeItem(_ barButtonItem: UIButton){
+        if isEditing {
+            barButtonItem.setTitle("Edit", for: .normal)
+            setEditing(false, animated: true)
+        }
+        else{
+            barButtonItem.setTitle("Done", for: .normal)
+            setEditing(true, animated: true)
         }
     }
 }
