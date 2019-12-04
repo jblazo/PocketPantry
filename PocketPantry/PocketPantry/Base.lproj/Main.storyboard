@@ -214,23 +214,11 @@
                                 <action selector="removeItem:" destination="B5D-lj-OTf" id="RO1-od-1CG"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="Q1v-Ep-ZqE">
-                                <connections>
-                                    <action selector="addNewItem:" destination="B5D-lj-OTf" id="B0A-sh-tNp"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="naX-25-Woi">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rKf-gW-VuR">
-                                    <rect key="frame" x="265.5" y="7" width="92" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Clear List"/>
-                                    <connections>
-                                        <action selector="clearList:" destination="B5D-lj-OTf" eventType="touchUpInside" id="htV-fa-wm5"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q1v-Ep-ZqE">
+                            <connections>
+                                <action selector="addNewItem:" destination="B5D-lj-OTf" id="B0A-sh-tNp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdN-mo-gOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,35 +252,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pepperoni Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwA-ho-fTX">
-                                <rect key="frame" x="32" y="276" width="123" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwA-ho-fTX">
+                                <rect key="frame" x="20" y="86" width="374" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4 Servings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHH-I7-hXf">
-                                <rect key="frame" x="286" y="276" width="82" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ready In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BN4-DM-fug">
+                                <rect key="frame" x="20" y="178" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Recipie Photo" translatesAutoresizingMaskIntoConstraints="NO" id="O09-nP-2vk">
-                                <rect key="frame" x="87" y="107" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ready in 40 minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BN4-DM-fug">
-                                <rect key="frame" x="32" y="305" width="156" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instructions" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="7hp-wU-EDQ">
+                                <rect key="frame" x="20" y="231" width="374" height="354"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="30" translatesAutoresizingMaskIntoConstraints="NO" id="7hp-wU-EDQ">
-                                <rect key="frame" x="32" y="243" width="374" height="354"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Servings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHH-I7-hXf">
+                                <rect key="frame" x="20" y="149" width="374" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Pre-Heat the oven to 450 degrees. Then add tomato sauce to the pre-bought dough. Once this is evenly spread to the edges, add cheese as desired.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -303,7 +286,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Random Recipie" id="N2x-8n-Tko"/>
                     <connections>
-                        <outlet property="ImageView" destination="O09-nP-2vk" id="gy1-tf-ccm"/>
                         <outlet property="instructionsLabel" destination="7hp-wU-EDQ" id="Xbc-Ce-VbD"/>
                         <outlet property="readyInLabel" destination="BN4-DM-fug" id="W1r-WH-UEd"/>
                         <outlet property="servingsLabel" destination="OHH-I7-hXf" id="aoH-Il-O5B"/>
@@ -355,8 +337,7 @@
     </scenes>
     <resources>
         <image name="Home Icon" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="List Icon" width="64" height="51"/>
-        <image name="Recipie Icon" width="64" height="64"/>
-        <image name="Recipie Photo" width="300" height="225"/>
+        <image name="List Icon" width="42.666667938232422" height="34"/>
+        <image name="Recipie Icon" width="42.666667938232422" height="42.666667938232422"/>
     </resources>
 </document>

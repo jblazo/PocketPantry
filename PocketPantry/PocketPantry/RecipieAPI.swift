@@ -6,59 +6,60 @@
 //  Copyright © 2019 Blazo, Jarod N. All rights reserved.
 //
 
-import Foundation
 
-struct recipie : Decodable{
-    var title : String
-    var readyInMinutes : String
-    var Servings : Int
-    
+import UIKit
+struct RecipeResponse: Codable {
+    var recipes: [Recipe]
 }
 
-typealias RecipieResult = Swift.Result<recipie, Error>
-typealias RecipieResultClosure = (RecipieResult) -> Void
 
-func fetchRecipie(completion: @escaping RecipieResultClosure){
-    var result : RecipieResult
-    let headers = [
-        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": "fed8d523cemsh85732f54b32da8fp1815e1jsn8d844d9a2998"
-    ]
+struct Recipe : Codable{
+    var title : String
+    var readyInMinutes : Int
+    var servings : Int
+    var instructions : String
     
-    let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegetarian%252Cdessert")! as URL,
-                                      cachePolicy: .useProtocolCachePolicy,
-                                      timeoutInterval: 10.0)
-    request.httpMethod = "GET"
-    request.allHTTPHeaderFields = headers
-    
-    let session = URLSession.shared
-    
-    //This would be the API Call
-    
-    
-//    let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//        if (error != nil), let theError = error {
-//            print(theError)
-//        }
-//        else if let myData = data{
-//            let decoder = JSONDecoder()
-//            do {
-//                let apiResponse = try decoder.decode(recipie.self, from: myData)
-//                result = RecipieResult.success(apiResponse.self)
-//            }
-//            catch{
-//                return
-//            }
-//        }
-//
-//        else {
-//            let httpResponse = response as? HTTPURLResponse
-//            print("\(httpResponse!)")
-//        }
-//        DispatchQueue.main.async {
-//            completion(result)
-//        }
-//    })
-    
-    //dataTask.resume()
+}
+typealias RecipeResponseResult = Swift.Result<RecipeResponse,Error>
+typealias RecipeResponseClosure = (RecipeResponseResult) -> Void
+
+class RecipieAPI{
+    public class func fetchRecipe(completion: @escaping RecipeResponseClosure){
+        let headers = [
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": "fed8d523cemsh85732f54b32da8fp1815e1jsn8d844d9a2998"
+        ]
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?number=1&tags=vegetarian%252Cdessert")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        
+        
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            let result: RecipeResponseResult
+            if let error = error {
+                result = .failure(error)
+            } else if let data = data {
+                let decoder = JSONDecoder()
+                do {
+                    let apiResponse = try decoder.decode(RecipeResponse.self, from: data)
+                    result = .success(apiResponse)
+                } catch {
+                    result = .failure(error)
+                }
+            } else {
+                let nsError = NSError(domain: "Recipe", code: -1, userInfo: nil)
+                result = .failure(nsError)
+            }
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        })
+        
+        dataTask.resume()
+    }
 }
