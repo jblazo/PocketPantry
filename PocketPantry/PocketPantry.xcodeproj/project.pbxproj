@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC5A807023972BE500FD12CD /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A806F23972BE500FD12CD /* ListCell.swift */; };
+		BC5A807223972F7D00FD12CD /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A807123972F7D00FD12CD /* ListItem.swift */; };
+		BC5A80742397305200FD12CD /* ListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5A80732397305200FD12CD /* ListStore.swift */; };
 		BC702EA3238D6546002C23ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC702EA2238D6546002C23ED /* AppDelegate.swift */; };
 		BC702EA8238D6546002C23ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC702EA6238D6546002C23ED /* Main.storyboard */; };
 		BC702EAA238D6565002C23ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC702EA9238D6565002C23ED /* Assets.xcassets */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC5A806F23972BE500FD12CD /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		BC5A807123972F7D00FD12CD /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		BC5A80732397305200FD12CD /* ListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStore.swift; sourceTree = "<group>"; };
 		BC702E9F238D6546002C23ED /* PocketPantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketPantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC702EA2238D6546002C23ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC702EA7238D6546002C23ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,8 +128,11 @@
 				BC702ED8238D6E71002C23ED /* RecipeViewController.swift */,
 				BC702EDC238D75E9002C23ED /* ItemHomeCell.swift */,
 				BC702ED0238D6B08002C23ED /* ExampleHomeCell.swift */,
+				BC5A806F23972BE500FD12CD /* ListCell.swift */,
 				BC702EDE238D7E32002C23ED /* PantryItem.swift */,
 				BC702EE0238D83F9002C23ED /* PantryStore.swift */,
+				BC5A807123972F7D00FD12CD /* ListItem.swift */,
+				BC5A80732397305200FD12CD /* ListStore.swift */,
 			);
 			path = PocketPantry;
 			sourceTree = "<group>";
@@ -280,12 +289,15 @@
 				BC702ED3238D6D10002C23ED /* TabBarController.swift in Sources */,
 				BC702EA3238D6546002C23ED /* AppDelegate.swift in Sources */,
 				BC702ED9238D6E71002C23ED /* RecipeViewController.swift in Sources */,
+				BC5A807023972BE500FD12CD /* ListCell.swift in Sources */,
+				BC5A807223972F7D00FD12CD /* ListItem.swift in Sources */,
 				BC702EE1238D83F9002C23ED /* PantryStore.swift in Sources */,
 				BC702ED1238D6B08002C23ED /* ExampleHomeCell.swift in Sources */,
 				BC702ED7238D6E3F002C23ED /* ListViewController.swift in Sources */,
 				BC702EDD238D75E9002C23ED /* ItemHomeCell.swift in Sources */,
 				BC702ED5238D6DFA002C23ED /* HomeViewController.swift in Sources */,
 				BC702EDF238D7E32002C23ED /* PantryItem.swift in Sources */,
+				BC5A80742397305200FD12CD /* ListStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,11 @@
 import UIKit
 
 class HomeViewController : UITableViewController{
-
+    
+    //MARK: - Pantry Store Access
     var store = PantryStore.shared
     
+    //MARK: - TableView Overrides
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return store.items.count
     }
@@ -66,6 +68,8 @@ class HomeViewController : UITableViewController{
         }
     }
     
+    
+    //MARK: - Item Editing Functions
     @IBAction func addNewItem(_ barButtonItem: UIBarButtonItem){
         
         showInputDialog(title: "Add Item",
@@ -80,29 +84,6 @@ class HomeViewController : UITableViewController{
             guard input != "" else{
                 return
             }
-//            guard input != "", input2 != "" else{
-//                if let itemName = input {
-//                    let addItem = PantryItem(itemName: itemName)
-//                    self.store.addItem(addItem)
-//                    if let row = self.store.items.firstIndex(of: addItem){
-//                        let indexPath = IndexPath(row: row, section: 0)
-//                        self.tableView.insertRows(at: [indexPath], with: .automatic)
-//                    }
-//                }
-//                return
-//            }
-//            guard input != "", input2 != "", input3 != "" else{
-//                if let itemName = input, let expirationDate = input2{
-//                    let addItem = PantryItem(itemName: itemName, expirationDate: expirationDate)
-//                    self.store.addItem(addItem)
-//                    if let row = self.store.items.firstIndex(of: addItem){
-//                        let indexPath = IndexPath(row: row, section: 0)
-//                        self.tableView.insertRows(at: [indexPath], with: .automatic)
-//                    }
-//                }
-//                return
-//            }
-            
             
             print("The new item is \(input ?? "") expiring \(input3 ?? "")  with \(input2 ?? "") left")
             if let itemName = input, let amountLeft = input3, let expirationDate = input2{
@@ -155,7 +136,7 @@ class HomeViewController : UITableViewController{
 }
 
 
-
+//MARK: - Extension for text field alert
 extension UIViewController {
     func showInputDialog(title:String? = nil,
                          subtitle:String? = nil,
