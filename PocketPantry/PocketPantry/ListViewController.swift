@@ -99,6 +99,9 @@ class ListViewController : UITableViewController {
         }
     }
 
+    @IBAction func clearList(_ button : UIButton){
+        
+    }
     
 }
 
